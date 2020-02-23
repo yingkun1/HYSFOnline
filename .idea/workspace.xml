@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73d09ba3-eeff-4463-a48c-148bc7cdd880" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0002_auto_20200223_1110.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/HYSFOnline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HYSFOnline.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/courses/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/courses/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/courses/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/courses/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/courses/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/courses/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/courses/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HYSFOnline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/HYSFOnline/settings.py" afterDir="false" />
     </list>
@@ -87,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582447871894</updated>
       <workItem from="1582447875983" duration="2972000" />
-      <workItem from="1582454981075" duration="3327000" />
+      <workItem from="1582454981075" duration="6062000" />
     </task>
     <servers />
   </component>
