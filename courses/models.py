@@ -4,7 +4,6 @@ from datetime import datetime
 
 from django.db import models
 
-
 # Create your models here.
 class Course(models.Model):
     name = models.CharField(max_length=50, verbose_name=u'课程名称')

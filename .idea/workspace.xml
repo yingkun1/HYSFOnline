@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73d09ba3-eeff-4463-a48c-148bc7cdd880" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/courses/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courses/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courses/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courses/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courses/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courses/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/courses/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HYSFOnline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/HYSFOnline/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
     <configuration name="HYSFOnline" type="Python.DjangoServer" factoryName="Django server">
@@ -83,7 +75,10 @@
       <option name="presentableId" value="Default" />
       <updated>1582447871894</updated>
       <workItem from="1582447875983" duration="2972000" />
-      <workItem from="1582454981075" duration="6062000" />
+      <workItem from="1582454981075" duration="6269000" />
+      <workItem from="1582512706132" duration="436000" />
+      <workItem from="1582513216723" duration="308000" />
+      <workItem from="1582513536859" duration="3360000" />
     </task>
     <servers />
   </component>
@@ -94,29 +89,37 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1278" height="312" key="GridCell.Tab.0.bottom" timestamp="1582459746714">
+    <state x="260" y="61" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582514950465">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state width="1278" height="312" key="GridCell.Tab.0.bottom/0.23.1320.745@0.23.1320.745" timestamp="1582459746714" />
-    <state width="1278" height="312" key="GridCell.Tab.0.center" timestamp="1582459746712">
+    <state x="260" y="61" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1320.745@0.23.1320.745" timestamp="1582514950465" />
+    <state x="417" y="272" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1582513523606">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state width="1278" height="312" key="GridCell.Tab.0.center/0.23.1320.745@0.23.1320.745" timestamp="1582459746712" />
-    <state width="1278" height="312" key="GridCell.Tab.0.left" timestamp="1582459746711">
+    <state x="417" y="272" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.23.1320.745@0.23.1320.745" timestamp="1582513523606" />
+    <state width="1278" height="312" key="GridCell.Tab.0.bottom" timestamp="1582514986117">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state width="1278" height="312" key="GridCell.Tab.0.left/0.23.1320.745@0.23.1320.745" timestamp="1582459746711" />
-    <state width="1278" height="312" key="GridCell.Tab.0.right" timestamp="1582459746713">
+    <state width="1278" height="312" key="GridCell.Tab.0.bottom/0.23.1320.745@0.23.1320.745" timestamp="1582514986117" />
+    <state width="1278" height="312" key="GridCell.Tab.0.center" timestamp="1582514986116">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state width="1278" height="312" key="GridCell.Tab.0.right/0.23.1320.745@0.23.1320.745" timestamp="1582459746713" />
-    <state x="169" y="34" key="SettingsEditor" timestamp="1582455173477">
+    <state width="1278" height="312" key="GridCell.Tab.0.center/0.23.1320.745@0.23.1320.745" timestamp="1582514986116" />
+    <state width="1278" height="312" key="GridCell.Tab.0.left" timestamp="1582514986115">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state x="169" y="34" key="SettingsEditor/0.23.1320.745@0.23.1320.745" timestamp="1582455173477" />
-    <state x="353" y="228" key="com.intellij.ide.util.TipDialog" timestamp="1582454980204">
+    <state width="1278" height="312" key="GridCell.Tab.0.left/0.23.1320.745@0.23.1320.745" timestamp="1582514986115" />
+    <state width="1278" height="312" key="GridCell.Tab.0.right" timestamp="1582514986116">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state x="353" y="228" key="com.intellij.ide.util.TipDialog/0.23.1320.745@0.23.1320.745" timestamp="1582454980204" />
+    <state width="1278" height="312" key="GridCell.Tab.0.right/0.23.1320.745@0.23.1320.745" timestamp="1582514986116" />
+    <state x="169" y="34" key="SettingsEditor" timestamp="1582515398825">
+      <screen x="0" y="23" width="1320" height="745" />
+    </state>
+    <state x="169" y="34" key="SettingsEditor/0.23.1320.745@0.23.1320.745" timestamp="1582515398825" />
+    <state x="304" y="198" key="com.intellij.ide.util.TipDialog" timestamp="1582513226796">
+      <screen x="0" y="23" width="1320" height="745" />
+    </state>
+    <state x="304" y="198" key="com.intellij.ide.util.TipDialog/0.23.1320.745@0.23.1320.745" timestamp="1582513226796" />
   </component>
 </project>
