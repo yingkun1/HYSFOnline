@@ -45,7 +45,7 @@ class UserFavorite(models.Model):
         verbose_name_plural = verbose_name
 
 
-#用户消息表
+# 用户消息表
 class UserMessage(models.Model):
     user = models.IntegerField(default=0, verbose_name=u'接收用户')
     message = models.CharField(max_length=500, verbose_name=u'消息内容')
@@ -57,7 +57,7 @@ class UserMessage(models.Model):
         verbose_name_plural = verbose_name
 
 
-#用户课程表
+# 用户课程表
 class UserCourse(models.Model):
     user = models.ForeignKey(UserProfile, verbose_name=u'用户')
     course = models.ForeignKey(Course, verbose_name=u'课程')
