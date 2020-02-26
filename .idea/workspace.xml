@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73d09ba3-eeff-4463-a48c-148bc7cdd880" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/images/code1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/banner/2016/course_image/app.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/banner/2016/course_image/bigqianduan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/banner/2016/course_image/java.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/banner/2016/course_image/qianduan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/org/2016/12/tianjin.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/org/2016/university/beijing.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HYSFOnline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HYSFOnline.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/operation/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operation/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/operation/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operation/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HYSFOnline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/HYSFOnline/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HYSFOnline/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/HYSFOnline/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +33,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="HYSHOnline2.0" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1YCY6vAdqZERolaFIEUY7fUWXRb" />
@@ -49,8 +58,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/extra_apps" />
-      <recent name="$PROJECT_DIR$/apps" />
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/static/media/banner/2016/course_image" />
+      <recent name="$PROJECT_DIR$/static/media/banner/2016" />
+      <recent name="$PROJECT_DIR$/static/media/org/2016/university" />
+      <recent name="$PROJECT_DIR$/static/media/org/2016" />
     </key>
   </component>
   <component name="RunManager">
@@ -95,12 +107,27 @@
       <workItem from="1582513216723" duration="308000" />
       <workItem from="1582513536859" duration="6393000" />
       <workItem from="1582530162451" duration="11682000" />
-      <workItem from="1582603291726" duration="8915000" />
+      <workItem from="1582603291726" duration="11476000" />
+      <workItem from="1582623240771" duration="7142000" />
+      <workItem from="1582685939693" duration="8195000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -114,26 +141,50 @@
       <screen x="0" y="23" width="1320" height="745" />
     </state>
     <state x="417" y="272" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.23.1320.745@0.23.1320.745" timestamp="1582513523606" />
-    <state width="1278" height="312" key="GridCell.Tab.0.bottom" timestamp="1582615688142">
+    <state x="398" y="149" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582627205939">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state width="1278" height="312" key="GridCell.Tab.0.bottom/0.23.1320.745@0.23.1320.745" timestamp="1582615688142" />
-    <state width="1278" height="312" key="GridCell.Tab.0.center" timestamp="1582615688141">
+    <state x="398" y="149" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1320.745@0.23.1320.745" timestamp="1582627205939" />
+    <state width="438" height="447" key="DebuggerActiveHint" timestamp="1582700322058">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state width="1278" height="312" key="GridCell.Tab.0.center/0.23.1320.745@0.23.1320.745" timestamp="1582615688141" />
-    <state width="1278" height="312" key="GridCell.Tab.0.left" timestamp="1582615688141">
+    <state width="438" height="447" key="DebuggerActiveHint/0.23.1320.745@0.23.1320.745" timestamp="1582700322058" />
+    <state width="1278" height="312" key="GridCell.Tab.0.bottom" timestamp="1582701614691">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state width="1278" height="312" key="GridCell.Tab.0.left/0.23.1320.745@0.23.1320.745" timestamp="1582615688141" />
-    <state width="1278" height="312" key="GridCell.Tab.0.right" timestamp="1582615688141">
+    <state width="1278" height="312" key="GridCell.Tab.0.bottom/0.23.1320.745@0.23.1320.745" timestamp="1582701614691" />
+    <state width="1278" height="312" key="GridCell.Tab.0.center" timestamp="1582701614690">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state width="1278" height="312" key="GridCell.Tab.0.right/0.23.1320.745@0.23.1320.745" timestamp="1582615688141" />
-    <state x="169" y="34" key="SettingsEditor" timestamp="1582552423397">
+    <state width="1278" height="312" key="GridCell.Tab.0.center/0.23.1320.745@0.23.1320.745" timestamp="1582701614690" />
+    <state width="1278" height="312" key="GridCell.Tab.0.left" timestamp="1582701614689">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
-    <state x="169" y="34" key="SettingsEditor/0.23.1320.745@0.23.1320.745" timestamp="1582552423396" />
+    <state width="1278" height="312" key="GridCell.Tab.0.left/0.23.1320.745@0.23.1320.745" timestamp="1582701614689" />
+    <state width="1278" height="312" key="GridCell.Tab.0.right" timestamp="1582701614690">
+      <screen x="0" y="23" width="1320" height="745" />
+    </state>
+    <state width="1278" height="312" key="GridCell.Tab.0.right/0.23.1320.745@0.23.1320.745" timestamp="1582701614690" />
+    <state width="1278" height="265" key="GridCell.Tab.1.bottom" timestamp="1582701053917">
+      <screen x="0" y="23" width="1320" height="745" />
+    </state>
+    <state width="1278" height="265" key="GridCell.Tab.1.bottom/0.23.1320.745@0.23.1320.745" timestamp="1582701053917" />
+    <state width="1278" height="265" key="GridCell.Tab.1.center" timestamp="1582701053916">
+      <screen x="0" y="23" width="1320" height="745" />
+    </state>
+    <state width="1278" height="265" key="GridCell.Tab.1.center/0.23.1320.745@0.23.1320.745" timestamp="1582701053916" />
+    <state width="1278" height="265" key="GridCell.Tab.1.left" timestamp="1582701053915">
+      <screen x="0" y="23" width="1320" height="745" />
+    </state>
+    <state width="1278" height="265" key="GridCell.Tab.1.left/0.23.1320.745@0.23.1320.745" timestamp="1582701053915" />
+    <state width="1278" height="265" key="GridCell.Tab.1.right" timestamp="1582701053916">
+      <screen x="0" y="23" width="1320" height="745" />
+    </state>
+    <state width="1278" height="265" key="GridCell.Tab.1.right/0.23.1320.745@0.23.1320.745" timestamp="1582701053916" />
+    <state x="169" y="34" key="SettingsEditor" timestamp="1582619330443">
+      <screen x="0" y="23" width="1320" height="745" />
+    </state>
+    <state x="169" y="34" key="SettingsEditor/0.23.1320.745@0.23.1320.745" timestamp="1582619330443" />
     <state x="304" y="198" key="com.intellij.ide.util.TipDialog" timestamp="1582513226796">
       <screen x="0" y="23" width="1320" height="745" />
     </state>
@@ -142,5 +193,16 @@
       <screen x="0" y="23" width="1320" height="745" />
     </state>
     <state x="325" y="92" width="670" height="676" key="search.everywhere.popup/0.23.1320.745@0.23.1320.745" timestamp="1582608233472" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

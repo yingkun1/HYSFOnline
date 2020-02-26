@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Django settings for HYSFOnline project.
 
@@ -28,6 +29,11 @@ SECRET_KEY = '0___d4$al$f7ivpjrr)2fzt#@f6lb4&)_g=1=7-hq9b+i@f^2z'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# 重写验证
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
 
 # Application definition
 
@@ -130,3 +136,6 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
