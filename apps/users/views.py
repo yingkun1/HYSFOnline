@@ -36,3 +36,10 @@ class LoginView(View):
                 return render(request, 'login.html', {'msg': '用户名或者密码错误，请重新登录'})
         else:
             return render(request, 'login.html', {"login_form":login_form})
+
+class RegisterView(View):
+    def get(self,request):
+        return render(request, 'register.html',{})
+
+    def post(self,request):
+        pass
