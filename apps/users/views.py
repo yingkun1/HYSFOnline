@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.backends import ModelBackend
 from .models import UserProfile
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 from django.db.models import Q
 from django.views.generic.base import View
 
@@ -39,7 +39,12 @@ class LoginView(View):
 
 class RegisterView(View):
     def get(self,request):
-        return render(request, 'register.html',{})
+        register_form = RegisterForm(request.POST)
+        return render(request, 'register.html',{'register_form':register_form})
 
     def post(self,request):
-        pass
+        register_form = RegisterForm(request.POST)
+        if register_form.is_valid():
+            email = request.POST.get('email','')
+            pass_word = request.POST.get('password','')
+
