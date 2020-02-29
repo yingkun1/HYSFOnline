@@ -140,3 +140,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+EMAIL_HOST = "smtp.qq.com"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '925712087@qq.com'
+EMAIL_HOST_PASSWORD = 'pzjzbysywgiibfgg'
+EMAIL_USE_TLS = False
+EMAIL_FROM = '925712087@qq.com'
