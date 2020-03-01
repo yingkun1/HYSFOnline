@@ -30,6 +30,16 @@ def send_register_email(email,send_type='register'):
         print u'发送邮件成功'
         if send_status:
             pass
+
+    if send_type == 'forget':
+        email_title = u'衡师在线网密码重置链接'
+        email_body = u'请点击下面的的链接重置你的密码:http://127.0.0.1:8000/reset/{0}'.format(email_record.code)
+        send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
+        print send_status
+        print u'发送邮件成功'
+        if send_status:
+            pass
+
 def generate_random_str(randomlength=8):
     str = ''
     chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'
