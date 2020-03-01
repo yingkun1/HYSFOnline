@@ -123,6 +123,7 @@ class ForgetPwdView(View):
         if forgetpwd_form.is_valid():
             email = request.POST.get('email', '')
             if UserProfile.objects.filter(email=email):
+                print u"准备发送邮件"
                 send_register_email(email,'forget')
                 return render(request, 'send_success.html')
         else:
