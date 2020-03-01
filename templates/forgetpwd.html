@@ -77,7 +77,8 @@
                 <div class="unslider-arrow next"></div>
             </div>
             <div class="fl form-box">
-                <h2>忘记密码</h2>
+                <h2>忘记密码(联系管理员)</h2>
+
                 <form id="jsFindPwdForm" method="post" action="{% url 'forget_pwd' %}" autocomplete="off">
                     <input type='hidden' name='csrfmiddlewaretoken' value='mymQDzHWl2REXIfPMg2mJaLqDfaS1sD5' />
                     <div class="form-group marb20 {% if forgetpwd_form.errors.email %} errorput {% endif %} ">
