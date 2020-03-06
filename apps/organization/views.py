@@ -64,6 +64,7 @@ class AddUserAskView(View):
 
 class OrgHomeView(View):
     def get(self,request, org_id):
+        current_page = 'home'
         course_org = CourseOrg.objects.get(id =int(org_id))
         all_courses = course_org.course_set.all()[:3]
         all_teachers = course_org.teacher_set.all()[:2]
@@ -71,6 +72,38 @@ class OrgHomeView(View):
             'all_courses':all_courses,
             'all_teachers':all_teachers,
             'course_org':course_org,
+            'current_page':current_page,
+        })
+
+class OrgCourseView(View):
+    def get(self,request,org_id):
+        current_page = 'course'
+        course_org = CourseOrg.objects.get(id =int(org_id))
+        all_courses = course_org.course_set.all()
+        return render(request,'org-detail-course.html',{
+            'all_courses':all_courses,
+            'course_org':course_org,
+            'current_page':current_page
         })
 
 
+class OrgDescView(View):
+    def get(self,request,org_id):
+        current_page = 'desc'
+        course_org = CourseOrg.objects.get(id =int(org_id))
+        return render(request,'org-detail-desc.html',{
+            'course_org':course_org,
+            'current_page':current_page
+        })
+
+
+class OrgTeacherView(View):
+    def get(self,request,org_id):
+        current_page = 'teacher'
+        course_org = CourseOrg.objects.get(id =int(org_id))
+        all_teachers = course_org.teacher_set.all()
+        return render(request,'org-detail-teachers.html',{
+            'all_teachers':all_teachers,
+            'course_org':course_org,
+            'current_page':current_page
+        })
