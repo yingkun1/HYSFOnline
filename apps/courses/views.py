@@ -35,3 +35,17 @@ class CourseListView(View):
             'hot_courses':hot_courses
         })
 
+
+class CourseDetailView(View):
+    """
+    课程详情页
+    """
+    def get(self,request,course_id):
+        course = Course.objects.get(id=course_id)
+        # 增加课程点击数
+        course.click_nums += 1
+        course.save()
+        return render(request,'course-detail.html',{
+            'course':course
+        })
+

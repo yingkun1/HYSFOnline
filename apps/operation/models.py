@@ -20,6 +20,9 @@ class UserAsk(models.Model):
         verbose_name = u'用户咨询'
         verbose_name_plural = verbose_name
 
+    def __unicode__(self):
+        return self.name
+
 
 # 用户评论表
 class CourseComments(models.Model):
@@ -31,6 +34,8 @@ class CourseComments(models.Model):
     class Meta:
         verbose_name = u'课程评论'
         verbose_name_plural = verbose_name
+
+
 
 
 # 用户收藏表
@@ -66,3 +71,5 @@ class UserCourse(models.Model):
     class Meta:
         verbose_name = u'用户课程'
         verbose_name_plural = verbose_name
+
+
