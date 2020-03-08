@@ -1,9 +1,9 @@
 # *_* coding:utf-8 *_*
 from django.shortcuts import render
 from django.views.generic.base import View
-from .models import Course
+from .models import Course,CourseResource
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
-from operation.models import UserFavorite
+from operation.models import UserFavorite, CourseComments
 
 
 
@@ -65,5 +65,31 @@ class CourseDetailView(View):
             'relate_courses':relate_courses,
             'has_fav_course':has_fav_course,
             'has_fav_org':has_fav_org
+        })
+
+
+class CourseInfoView(View):
+    """
+    课程章节信息
+    """
+    def get(self,request,course_id):
+        course = Course.objects.get(id = int(course_id))
+        all_resources = CourseResource.objects.filter(course = course)
+        return render(request,'course-video.html',{
+            'course':course,
+            'course_resources':all_resources,
+        })
+
+
+class CourseCommentView(View):
+    """
+    课程评论信息
+    """
+    def get(self,request,course_id):
+        course = Course.objects.get(id = int(course_id))
+        all_comments = CourseComments.objects.filter(course = course)
+        return render(request,'course-comment.html',{
+            'course':course,
+            'all_comments':all_comments
         })
 
