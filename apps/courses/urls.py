@@ -9,7 +9,7 @@
 @desc:
 """
 from django.conf.urls import url,include
-from  .views import CourseListView, CourseDetailView,CourseInfoView,CourseCommentView
+from  .views import CourseListView, CourseDetailView,CourseInfoView,CourseCommentView,AddCommentsView
 
 urlpatterns = [
     # 课程相关列表页
@@ -19,4 +19,7 @@ urlpatterns = [
     url(r'^detail/(?P<course_id>\d+)/$', CourseDetailView.as_view(),name='course_detail'),
     url(r'^info/(?P<course_id>\d+)/$', CourseInfoView.as_view(),name='course_info'),
     url(r'^comment/(?P<course_id>\d+)/$', CourseCommentView.as_view(),name='course_comments'),
+    # 添加课程评论
+    url(r'^add_comment/$', AddCommentsView.as_view() ,name='add_comment'),
+
 ]
