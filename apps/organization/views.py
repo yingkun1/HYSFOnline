@@ -7,6 +7,7 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from .forms import UserAskForm
 from operation.models import UserFavorite
 from courses.models import Course
+from organization.models import Teacher
 import json
 # Create your views here.
 
@@ -161,5 +162,62 @@ class AddFavView(View):
             else:
                 data = {'status':'fail', 'msg':'收藏出错'}
                 return HttpResponse(json.dumps(data),content_type="application/json")
+
+
+class TeacherListView(View):
+    """
+    课程讲师列表页
+    """
+    def get(self,request):
+        all_teachers =  Teacher.objects.all()
+        # 人气排序
+        sort = request.GET.get('sort')
+        if sort:
+            if sort == 'hot':
+                all_teachers = all_teachers.order_by('-click_nums')[:5]
+        # 讲师排行榜
+        sorted_teachers = all_teachers.order_by('-click_nums')[:3]
+        # 对讲师进行分页
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        p = Paginator(all_teachers, 1, request=request)
+
+        all_teachers = p.page(page)
+        return render(request,'teachers-list.html',{
+            'all_teachers':all_teachers,
+            'sort':sort,
+            'sorted_teachers':sorted_teachers
+        })
+
+
+class TeacherDetailView(View):
+    """
+    讲师详情页面
+    """
+    def get(self,request,teacher_id):
+        teacher = Teacher.objects.get(id=teacher_id)
+        all_courses = Course.objects.filter(teacher=teacher)
+        # 用户收藏
+        has_teacher_fav = False
+        has_org_fav = False
+        if request.user.is_authenticated():
+            if UserFavorite.objects.filter(user=request.user, fav_id=teacher.id, fav_type=3):
+                has_teacher_fav = True
+            if UserFavorite.objects.filter(user=request.user,fav_id=teacher.org.id,fav_type=2):
+                has_org_fav = True
+        # 讲师排行榜
+        sorted_teachers = Teacher.objects.all().order_by('-click_nums')[:3]
+        return render(request,'teacher-detail.html',{
+            'teacher':teacher,
+            'all_course':all_courses,
+            'sorted_teachers':sorted_teachers,
+            'has_teacher_fav':has_teacher_fav,
+            'has_org_fav':has_org_fav
+        })
+
+
 
 
