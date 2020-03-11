@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.hashers import make_password
 from .models import UserProfile, EmailVerifyRecord
-from .forms import LoginForm, RegisterForm, ForgetPwdForm, ModifyPwdForm
+from .forms import LoginForm, RegisterForm, ForgetPwdForm, ModifyPwdForm,UploadImageForm
 from django.db.models import Q
 from django.views.generic.base import View
 from utils.email_send import send_register_email
@@ -137,4 +137,17 @@ class UserInfoView(LoginRequiredMixin,View):
     """
     def get(self,request):
         return render(request,'usercenter-info.html',{})
+
+
+class UploadImageView(LoginRequiredMixin,View):
+    """
+    用户上传头像
+    """
+    def post(self,request):
+        uploadimage_form = UploadImageForm(request.POST,request.FILES)
+        if uploadimage_form.is_valid():
+            image = uploadimage_form.cleaned_data['image']
+            request.user.image = image
+            request.user.save()
+            pass
 
