@@ -181,3 +181,5 @@ class VideoPlayView(View):
             'video':video
         })
 
+
+
