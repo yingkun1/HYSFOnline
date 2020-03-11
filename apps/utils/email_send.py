@@ -16,11 +16,13 @@ from HYSFOnline.settings import EMAIL_FROM
 
 def send_register_email(email,send_type='register'):
     email_record = EmailVerifyRecord()
-    random_str = generate_random_str(16)
+    email_record.send_type = send_type
+    if send_type == 'update_email':
+        random_str = generate_random_str(4)
+    else:
+        random_str = generate_random_str(16)
     email_record.code = random_str
     email_record.email= email
-    email_record.send_type = send_type
-    email_record.save()
 
     if send_type == 'register':
         email_title = u'衡师在线网注册激活链接'
@@ -29,7 +31,7 @@ def send_register_email(email,send_type='register'):
         print send_status
         print u'发送邮件成功'
         if send_status:
-            pass
+            email_record.save()
 
     if send_type == 'forget':
         email_title = u'衡师在线网密码重置链接'
@@ -38,7 +40,18 @@ def send_register_email(email,send_type='register'):
         send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
         print send_status
         if send_status:
-            pass
+            email_record.save()
+
+    if send_type == 'update_email':
+        email_title = u'衡师在线网邮箱修改验证码'
+        email_body = u'你的邮箱验证码为:{0}'.format(email_record.code)
+        print u'尝试发送邮件'
+        send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
+        print send_status
+        if send_status:
+            email_record.save()
+
+
 
 def generate_random_str(randomlength=8):
     str = ''

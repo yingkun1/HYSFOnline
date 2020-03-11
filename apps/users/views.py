@@ -3,12 +3,14 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.hashers import make_password
+from django.http import HttpResponse
 from .models import UserProfile, EmailVerifyRecord
 from .forms import LoginForm, RegisterForm, ForgetPwdForm, ModifyPwdForm,UploadImageForm
 from django.db.models import Q
 from django.views.generic.base import View
 from utils.email_send import send_register_email
 from utils.mixin_utils import LoginRequiredMixin
+import json
 
 
 class CustomBackend(ModelBackend):
@@ -92,7 +94,12 @@ class ResetUserView(View):
             for record in all_records:
                 email = record.email
                 return render(request, 'password_reset.html', {'email':email})
+
+
 class ModifyPwdView(View):
+    """
+    重置用户密码(用户未登录)
+    """
     print u'进入该界面'
     def post(self,request):
         modifypwd_form = ModifyPwdForm(request.POST)
@@ -111,9 +118,6 @@ class ModifyPwdView(View):
             return render(request,'password_reset.html',{'email':email,'modifypwd_form':modifypwd_form})
 
 
-
-
-
 class ForgetPwdView(View):
     def get(self,request):
         forgetpwd_form = ForgetPwdForm(request.POST)
@@ -127,6 +131,9 @@ class ForgetPwdView(View):
                 print u"准备发送邮件"
                 send_register_email(email,'forget')
                 return render(request, 'send_success.html')
+            else:
+                data = {'email':'未知错误'}
+                return HttpResponse(json.dumps(data),content_type="application/json")
         else:
             return render(request, 'forgetpwd.html',{'forgetpwd_form':forgetpwd_form})
 
@@ -149,5 +156,63 @@ class UploadImageView(LoginRequiredMixin,View):
             image = uploadimage_form.cleaned_data['image']
             request.user.image = image
             request.user.save()
-            pass
+            data = {'status':'success'}
+            return HttpResponse(json.dumps(data),content_type="application/json")
+        else:
+            data = {'status':'fail'}
+            return HttpResponse(json.dumps(data),content_type="application/json")
 
+
+class UpdatePwdView(LoginRequiredMixin,View):
+    """
+    重置用户密码(用户已登录)
+    """
+    def post(self,request):
+        modifypwd_form = ModifyPwdForm(request.POST)
+        if modifypwd_form.is_valid():
+            password = request.POST.get('password', '')
+            password2 = request.POST.get('password2','')
+            if password != password2:
+                data = {'status':'fail','msg':'密码不一致'}
+                return HttpResponse(json.dumps(data),content_type="application/json")
+            user = request.user
+            user.password = make_password(password)
+            user.save()
+            data = {'status':'success'}
+            return HttpResponse(json.dumps(data),content_type="application/json")
+        else:
+            return HttpResponse(json.dumps(modifypwd_form.errors),content_type="application/json")
+
+
+class SendEmialCodeView(LoginRequiredMixin,View):
+    """
+    发送邮箱验证码
+    """
+    def get(self,request):
+        email = request.GET.get('email','')
+        if UserProfile.objects.filter(email=email):
+            data = {'email':'邮箱已经存在'}
+            return HttpResponse(json.dumps(data),content_type="application/json")
+        else:
+            send_register_email(email, 'update_email')
+            data = {'status':'success'}
+            return HttpResponse(json.dumps(data),content_type="application/json")
+
+
+class UpdateEmailView(LoginRequiredMixin,View):
+    """
+    修改个人邮箱
+    """
+    def post(self,request):
+        email = request.POST.get('email','')
+        code = request.POST.get('code','')
+        existed_records =  EmailVerifyRecord.objects.filter(email=email, code=code, send_type='update_email')
+        if existed_records:
+            user = request.user
+            user.email = email
+            user.save()
+            data = {'status':'success'}
+            return HttpResponse(json.dumps(data),content_type="application/json")
+        else:
+            data = {'email':'验证码出错'}
+            return HttpResponse(json.dumps(data),content_type="application/json")
