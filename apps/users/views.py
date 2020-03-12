@@ -5,7 +5,7 @@ from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 from .models import UserProfile, EmailVerifyRecord
-from .forms import LoginForm, RegisterForm, ForgetPwdForm, ModifyPwdForm,UploadImageForm
+from .forms import LoginForm, RegisterForm, ForgetPwdForm, ModifyPwdForm,UploadImageForm,UserInfoForm
 from django.db.models import Q
 from django.views.generic.base import View
 from utils.email_send import send_register_email
@@ -144,6 +144,10 @@ class UserInfoView(LoginRequiredMixin,View):
     """
     def get(self,request):
         return render(request,'usercenter-info.html',{})
+
+    def post(self,request):
+        userinfo_form = UserInfoForm(request.POST)
+        pass
 
 
 class UploadImageView(LoginRequiredMixin,View):
