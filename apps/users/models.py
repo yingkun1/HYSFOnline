@@ -20,6 +20,11 @@ class UserProfile(AbstractUser):
         verbose_name = '用户信息'
         verbose_name_plural = verbose_name
 
+    def unread_nums(self):
+        # 获取用户未读消息的数量
+        from operation.models import UserMessage
+        return UserMessage.objects.filter(user=self.id).count()
+
 
 class EmailVerifyRecord(models.Model):
     code = models.CharField(max_length=30, verbose_name=u'验证码')

@@ -9,7 +9,7 @@
 @desc:
 """
 from django.conf.urls import url,include
-from .views import UserInfoView,UploadImageView,UpdatePwdView,SendEmialCodeView,UpdateEmailView,MyCourseView,MyFavOrgView,MyFavTeacherView,MyFavCourseView
+from .views import UserInfoView,UploadImageView,UpdatePwdView,SendEmialCodeView,UpdateEmailView,MyCourseView,MyFavOrgView,MyFavTeacherView,MyFavCourseView,MyMessageView
 urlpatterns = [
     # 用户信息
     url(r'^info/$', UserInfoView.as_view(), name='user_info'),
@@ -28,5 +28,7 @@ urlpatterns = [
     # 我收藏的教师
     url(r'^myfav/teacher$',MyFavTeacherView.as_view(),name='myfav_teacher'),
     # 我收藏的课程
-    url(r'^myfav/course$',MyFavCourseView.as_view(),name='myfav_course')
+    url(r'^myfav/course$',MyFavCourseView.as_view(),name='myfav_course'),
+    # 我的消息
+    url(r'^mymessage/$',MyMessageView.as_view(),name='mymessage')
 ]
