@@ -146,7 +146,7 @@ class UserInfoView(LoginRequiredMixin,View):
         return render(request,'usercenter-info.html',{})
 
     def post(self,request):
-        userinfo_form = UserInfoForm(request.POST)
+        userinfo_form = UserInfoForm(request.POST, instance=request.user)
         pass
 
 
