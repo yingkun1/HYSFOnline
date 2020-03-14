@@ -147,7 +147,12 @@ class UserInfoView(LoginRequiredMixin,View):
 
     def post(self,request):
         userinfo_form = UserInfoForm(request.POST, instance=request.user)
-        pass
+        if userinfo_form.is_valid():
+            userinfo_form.save()
+            data = {'status':'success'}
+            return HttpResponse(json.dumps(data),content_type="application/json")
+        else:
+            return HttpResponse(json.dumps(userinfo_form.errors),content_type="application/json")
 
 
 class UploadImageView(LoginRequiredMixin,View):
