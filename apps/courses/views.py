@@ -82,6 +82,8 @@ class CourseInfoView(LoginRequiredMixin,View):
     """
     def get(self,request,course_id):
         course = Course.objects.get(id = int(course_id))
+        course.students += 1
+        course.save()
         all_resources = CourseResource.objects.filter(course = course)
         # 查询用户是否已经学习过该课程
         user_course = UserCourse.objects.filter(user=request.user,course=course)

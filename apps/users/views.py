@@ -1,9 +1,9 @@
 # *_* coding:utf-8 *_*
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.hashers import make_password
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from .models import UserProfile, EmailVerifyRecord
 from .forms import LoginForm, RegisterForm, ForgetPwdForm, ModifyPwdForm,UploadImageForm,UserInfoForm
@@ -48,6 +48,18 @@ class LoginView(View):
                 return render(request, 'login.html', {'msg': '用户名或者密码错误，请重新登录'})
         else:
             return render(request, 'login.html', {"login_form":login_form})
+
+
+
+class LogoutView(View):
+    """
+    用户登出
+    """
+    def get(self,request):
+        logout(request)
+        from django.core.urlresolvers import reverse
+        return HttpResponseRedirect(reverse("index"))
+
 
 class RegisterView(View):
     def get(self,request):
@@ -152,7 +164,10 @@ class UserInfoView(LoginRequiredMixin,View):
     用户个人信息
     """
     def get(self,request):
-        return render(request,'usercenter-info.html',{})
+        current_nav = 'info'
+        return render(request,'usercenter-info.html',{
+            'current_nav':current_nav
+        })
 
     def post(self,request):
         userinfo_form = UserInfoForm(request.POST, instance=request.user)
@@ -238,14 +253,17 @@ class UpdateEmailView(LoginRequiredMixin,View):
 
 class MyCourseView(LoginRequiredMixin,View):
     def get(self,request):
+        current_nav = 'course'
         user_courses =  UserCourse.objects.filter(user=request.user)
         return render(request,'usercenter-mycourse.html',{
-            'all_courses':user_courses
+            'all_courses':user_courses,
+            'current_nav':current_nav
         })
 
 
 class MyFavOrgView(LoginRequiredMixin,View):
     def get(self,request):
+        current_nav = 'org'
         org_list = []
         fav_orgs = UserFavorite.objects.filter(user=request.user,fav_type=2)
         for fav_org in fav_orgs:
@@ -253,7 +271,8 @@ class MyFavOrgView(LoginRequiredMixin,View):
             org = CourseOrg.objects.get(id = org_id)
             org_list.append(org)
         return render(request,'usercenter-fav-org.html',{
-            'org_list':org_list
+            'org_list':org_list,
+            'current_nav':current_nav
         })
 
 
@@ -285,8 +304,14 @@ class MyFavCourseView(LoginRequiredMixin,View):
 
 class MyMessageView(LoginRequiredMixin,View):
     def get(self,request):
+        current_nav = 'message'
         all_messages = UserMessage.objects.filter(user=request.user.id)
-        # 对w我的消息进行分页
+        # 用户清空未读消息
+        all_unread_message = UserMessage.objects.filter(user=request.user.id, has_read=False)
+        for unread_message in all_unread_message:
+            unread_message.has_read = True
+            unread_message.save()
+        # 对我的消息进行分页
         try:
             page = request.GET.get('page', 1)
         except PageNotAnInteger:
@@ -296,5 +321,6 @@ class MyMessageView(LoginRequiredMixin,View):
 
         messages = p.page(page)
         return render(request,'usercenter-message.html',{
-            'messages':messages
+            'messages':messages,
+            'current_nav':current_nav
         })
