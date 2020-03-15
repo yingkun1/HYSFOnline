@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpResponse
 from django.db.models import Q
+from django.shortcuts import render_to_response
 from .models import CourseOrg, CityDict
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from .forms import UserAskForm
@@ -265,5 +266,13 @@ class TeacherDetailView(View):
         })
 
 
-
+# def page_not_found(request,exception):
+#     """
+#     全局404处理函数
+#     :param request:
+#     :return:
+#     """
+#     response = render_to_response('404.html',{})
+#     response.status_code = 404
+#     return response
 

@@ -12,38 +12,13 @@
             <div class="fl">
                 <div class="imgslide">
                     <ul class="imgs">
-
-                        <li>
-                            <a href="http://www.imooc.com">
-                                <img width="1200" height="478" src="/static/media/banner/2016/course_image/app.jpg" />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://www.projectsedu.com">
-                                <img width="1200" height="478" src="/static/media/banner/2016/course_image/bigqianduan.jpg" />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://www.projectsedu.com">
-                                <img width="1200" height="478" src="/static/media/banner/2016/course_image/qianduan.jpg" />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://www.projectsedu.com">
-                                <img width="1200" height="478" src="/static/media/banner/2016/course_image/java.jpg" />
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="http://www.projectsedu.com">
-                                <img width="1200" height="478" src="/static/media/banner/2016/course_image/yasi.png" />
-                            </a>
-                        </li>
-
-
+                        {% for banner in all_banners %}
+                            <li>
+                                <a href="{{ banner.url }}">
+                                    <img width="1200" height="478" src="{{ MEDIA_URL }}{{ banner.image }}" />
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="unslider-arrow prev"></div>
@@ -88,133 +63,42 @@
                     <div class="module1_1 left">
                         <img width="228" height="614" src="/static/images/module1_1.jpg"/>
                         <p class="fisrt_word">名师授课<br/>专业权威</p>
-                        <a class="more" href="course-list.html">查看更多课程 ></a>
+                        <a class="more" href="{% url 'course:course_list' %}">查看更多课程 ></a>
                     </div>
                     <div class="right group_list">
                         <div class="module1_2 box">
                             <div class="imgslide2">
                                 <ul class="imgs">
-
-                                    <li>
-                                        <a href="course-detail.html">
-                                            <img width="470" height="300" src="/static/media/courses/2016/12/python文件处理.jpg" />
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="course-detail.html">
-                                            <img width="470" height="300" src="/static/media/courses/2016/12/python面向对象.jpg" />
-                                        </a>
-                                    </li>
-
+                                    {% for banner_course in banner_courses %}
+                                        <li>
+                                            <a href="{% url 'course:course_detail' banner_course.id %}">
+                                                <img width="470" height="300" src="{{ MEDIA_URL }}{{ banner_course.image }}" />
+                                            </a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <div class="unslider-arrow2 prev"></div>
                             <div class="unslider-arrow2 next"></div>
                         </div>
-
-                        <div class="module1_3 box">
-                            <a href="course-detail.html">
-                                <img width="233" height="190" src="/static/media/courses/2016/11/mysql.jpg"/>
-                            </a>
-                            <div class="des">
-                                <a href="course-detail.html">
-                                    <h2 title="django入门">mysql入门</h2>
+                        {% for course in courses %}
+                            <div class="module1_{{ forloop.counter|add:2 }} box">
+                                <a href="{% url 'course:course_detail' course.id %}">
+                                    <img width="233" height="190" src="{{ MEDIA_URL }}{{ course.image }}"/>
                                 </a>
-                                <span class="fl">难度：<i class="key">初级</i></span>
-                                <span class="fr">学习人数：3</span>
+                                <div class="des">
+                                    <a href="{% url 'course:course_detail' course.id %}">
+                                        <h2 title="django入门">{{ course.name }}</h2>
+                                    </a>
+                                    <span class="fl">难度：<i class="key">{{ course.get_degree_display }}</i></span>
+                                    <span class="fr">学习人数：{{ course.students }}</span>
+                                </div>
+                                <div class="bottom">
+                                    <span class="fl" title="慕课网">{{ course.course_org.name }}</span>
+                                    <span class="star fr">{{ course.fav_nums }}</span>
+                                </div>
                             </div>
-                            <div class="bottom">
-                                <span class="fl" title="慕课网">衡师在线网</span>
-                                <span class="star fr">0</span>
-                            </div>
-                        </div>
-
-                        <div class="module1_4 box">
-                            <a href="course-detail.html">
-                                <img width="233" height="190" src="/static/media/courses/2016/11/57035ff200014b8a06000338-240-135.jpg"/>
-                            </a>
-                            <div class="des">
-                                <a href="course-detail.html">
-                                    <h2 title="java入门">java入门</h2>
-                                </a>
-                                <span class="fl">难度：<i class="key">中级</i></span>
-                                <span class="fr">学习人数：0</span>
-                            </div>
-                            <div class="bottom">
-                                <span class="fl" title="北京大学">北京大学</span>
-                                <span class="star fr">0</span>
-                            </div>
-                        </div>
-
-                        <div class="module1_5 box">
-                            <a href="course-detail.html">
-                                <img width="233" height="190" src="/static/media/courses/2016/11/540e57300001d6d906000338-240-135.jpg"/>
-                            </a>
-                            <div class="des">
-                                <a href="course-detail.html">
-                                    <h2 title="python入门">python入门</h2>
-                                </a>
-                                <span class="fl">难度：<i class="key">中级</i></span>
-                                <span class="fr">学习人数：0</span>
-                            </div>
-                            <div class="bottom">
-                                <span class="fl" title="南京大学">南京大学</span>
-                                <span class="star fr">0</span>
-                            </div>
-                        </div>
-
-                        <div class="module1_6 box">
-                            <a href="course-detail.html">
-                                <img width="233" height="190" src="/static/media/courses/2016/11/57035ff200014b8a06000338-240-135_dHfj8Nq.jpg"/>
-                            </a>
-                            <div class="des">
-                                <a href="course-detail.html">
-                                    <h2 title="java入门2">java入门2</h2>
-                                </a>
-                                <span class="fl">难度：<i class="key">高级</i></span>
-                                <span class="fr">学习人数：0</span>
-                            </div>
-                            <div class="bottom">
-                                <span class="fl" title="慕课网2">南开大学</span>
-                                <span class="star fr">0</span>
-                            </div>
-                        </div>
-
-                        <div class="module1_7 box">
-                            <a href="course-detail.html">
-                                <img width="233" height="190" src="/static/media/courses/2016/11/57035ff200014b8a06000338-240-135_0nFiBSI.jpg"/>
-                            </a>
-                            <div class="des">
-                                <a href="course-detail.html">
-                                    <h2 title="java入门3">java入门3</h2>
-                                </a>
-                                <span class="fl">难度：<i class="key">初级</i></span>
-                                <span class="fr">学习人数：1</span>
-                            </div>
-                            <div class="bottom">
-                                <span class="fl" title="慕课网3">天津大学</span>
-                                <span class="star fr">0</span>
-                            </div>
-                        </div>
-
-                        <div class="module1_8 box">
-                            <a href="course-detail.html">
-                                <img width="233" height="190" src="/static/media/courses/2016/11/540e57300001d6d906000338-240-135_MSIqfvw.jpg"/>
-                            </a>
-                            <div class="des">
-                                <a href="course-detail.html">
-                                    <h2 title="python入门2">python入门2</h2>
-                                </a>
-                                <span class="fl">难度：<i class="key">中级</i></span>
-                                <span class="fr">学习人数：0</span>
-                            </div>
-                            <div class="bottom">
-                                <span class="fl" title="慕课网666">湖南公学院</span>
-                                <span class="star fr">0</span>
-                            </div>
-                        </div>
-
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -228,221 +112,25 @@
                     <div class="module3_1 left">
                         <img width="228" height="463" src="/static/images/module3_1.jpg"/>
                         <p class="fisrt_word">名校来袭<br/>权威认证</p>
-                        <a class="more" href="org-list.html">查看更多机构 ></a>
+                        <a class="more" href="{% url 'org:org_list' %}">查看更多机构 ></a>
                     </div>
                     <div class="right">
                         <ul>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/hengyangshifan.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
+                            {% for course_org in course_orgs %}
+                                <li  class="{% if forloop.counter|divisibleby:5 %} five {% endif %}">
+                                    <a href="{% url 'org:org_home' course_org.id %}">
+                                        <div class="company">
+                                            <img width="184" height="100" src="{{ MEDIA_URL }}{{ course_org.image }}"/>
+                                            <div class="score">
+                                                <div class="circle">
+                                                    <h2>{{ course_org.tag }}</h2>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <p><span class="key" title="衡师在线网">衡阳师范学院</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/nanhuadaxue.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="北京大学">南华大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/hunangongxueyuan.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="清华大学">湖南工学院</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/beijinghuagong.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="南京大学">北京化工大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="five">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/chongqing.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="慕课网2">重庆大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/jinan.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="慕课网3">济南大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/beijing.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="慕课网3">北京大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/nanchanghangkong.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="慕课网4">南昌航空大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/sichuan.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="慕课网5">四川大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="five">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/xiamen.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="慕课网666">厦门大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/xinanjiaotong.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="衡师网">西南交通大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/zhejiang.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="python培训机构">浙江大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/zhongguominghang.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="vuejs培训">中国民航大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/zhongguonongye.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="nodejs培训">中国农业大学</span></p>
-                                </a>
-                            </li>
-
-                            <li class="five">
-                                <a href="org-detail-homepage.html">
-                                    <div class="company">
-                                        <img width="184" height="100" src="/static/media/org/2016/university/zhongguorenming.jpg"/>
-                                        <div class="score">
-                                            <div class="circle">
-                                                <h2>全国知名</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p><span class="key" title="衡师在线">中国人民大学</span></p>
-                                </a>
-                            </li>
-
+                                        <p><span class="key" title="{{ course_org.name }}">{{ course_org.name }}</span></p>
+                                    </a>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

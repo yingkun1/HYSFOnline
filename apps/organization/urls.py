@@ -26,3 +26,4 @@ urlpatterns = [
     # 讲师详情页
     url(r'^teacher/detail/(?P<teacher_id>\d+)/$',TeacherDetailView.as_view(), name='teacher_detail'),
 ]
+

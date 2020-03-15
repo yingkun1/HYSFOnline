@@ -9,8 +9,10 @@ from .models import UserProfile, EmailVerifyRecord
 from .forms import LoginForm, RegisterForm, ForgetPwdForm, ModifyPwdForm,UploadImageForm,UserInfoForm
 from django.db.models import Q
 from django.views.generic.base import View
+from django.core.urlresolvers import reverse
 from operation.models import UserCourse,UserFavorite,UserMessage
 from organization.models import CourseOrg,Teacher
+from users.models import Banner
 from courses.models import Course
 from utils.email_send import send_register_email
 from utils.mixin_utils import LoginRequiredMixin
@@ -41,7 +43,7 @@ class LoginView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return render(request, 'index.html')
+                    return HttpResponseRedirect(reverse("index"))
                 else:
                     return render(request, 'login.html', {'msg': '未激活，请在邮箱中点击链接激活'})
             else:
@@ -57,7 +59,7 @@ class LogoutView(View):
     """
     def get(self,request):
         logout(request)
-        from django.core.urlresolvers import reverse
+
         return HttpResponseRedirect(reverse("index"))
 
 
@@ -323,4 +325,22 @@ class MyMessageView(LoginRequiredMixin,View):
         return render(request,'usercenter-message.html',{
             'messages':messages,
             'current_nav':current_nav
+        })
+
+
+class IndexView(View):
+    """
+    衡师在线网首页
+    """
+    def get(self,request):
+        # 取出轮播图
+        all_banners = Banner.objects.all().order_by('index')
+        courses = Course.objects.filter(is_banner=False)[:6]
+        banner_courses = Course.objects.filter(is_banner=True)[:3]
+        course_orgs = CourseOrg.objects.all()[:15]
+        return render(request,'index.html',{
+            'all_banners':all_banners,
+            'courses':courses,
+            'banner_courses':banner_courses,
+            'course_orgs':course_orgs
         })

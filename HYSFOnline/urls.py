@@ -20,13 +20,13 @@ from django.views.generic import TemplateView
 from django.views.static import serve
 import xadmin
 
-from users.views import LoginView, LogoutView, RegisterView, ActiveUserView, ForgetPwdView, ResetUserView, ModifyPwdView
+from users.views import LoginView, LogoutView,IndexView, RegisterView, ActiveUserView, ForgetPwdView, ResetUserView, ModifyPwdView
 
 from HYSFOnline.settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
-    url('^$', TemplateView.as_view(template_name='index.html'), name='index'),
+    url('^$', IndexView.as_view(), name='index'),
     url('^login/$', LoginView.as_view(), name='login'),
     url('^logout/$', LogoutView.as_view(), name='logout'),
     url('^register/$', RegisterView.as_view(), name='register'),
@@ -44,3 +44,6 @@ urlpatterns = [
     #  用户相关url配置
     url(r'^users/', include('users.urls', namespace='users')),
 ]
+
+# # 全局404页面配置
+# handler404 = 'users.views.page_not_found'
