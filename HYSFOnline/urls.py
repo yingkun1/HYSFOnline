@@ -22,7 +22,7 @@ import xadmin
 
 from users.views import LoginView, LogoutView,IndexView, RegisterView, ActiveUserView, ForgetPwdView, ResetUserView, ModifyPwdView
 
-from HYSFOnline.settings import MEDIA_ROOT
+from HYSFOnline.settings import MEDIA_ROOT, STATIC_ROOT
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -41,9 +41,13 @@ urlpatterns = [
     url(r'^course/', include('courses.urls', namespace='course')),
     #配置上传文件的访问处理函数
     url(r'^media/(?P<path>.*)/$', serve, {'document_root': MEDIA_ROOT}),
+    #配置静态文件的访问处理函数
+    url(r'^static/(?P<path>.*)/$', serve, {'document_root': STATIC_ROOT}),
     #  用户相关url配置
     url(r'^users/', include('users.urls', namespace='users')),
 ]
 
-# # 全局404页面配置
-# handler404 = 'users.views.page_not_found'
+# 全局404页面配置
+handler404 = 'users.views.page_not_found'
+# 全局500页面配置
+handler500 = 'users.views.page_error'
