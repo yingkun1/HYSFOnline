@@ -52,7 +52,6 @@ class LoginView(View):
             return render(request, 'login.html', {"login_form":login_form})
 
 
-
 class LogoutView(View):
     """
     用户登出
