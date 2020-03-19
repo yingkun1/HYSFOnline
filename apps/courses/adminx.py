@@ -17,6 +17,8 @@ class CourseAdmin(object):
     list_display = ['name', 'desc', 'detail', 'degree', 'learn_time', 'students', ]
     search_fields = ['name', 'desc', 'detail', 'degree', 'students']
     list_filter = ['name', 'desc', 'detail', 'degree', 'learn_time', 'students']
+    ordering = ['-click_nums']
+    exclude = ['click_nums']
 
 
 class LessonAdmin(object):

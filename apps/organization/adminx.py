@@ -23,6 +23,8 @@ class CourseOrgAdmin(object):
     list_display = ['name', 'desc', 'click_nums', 'fav_nums']
     search_fields = ['name', 'desc', 'click_nums', 'fav_nums']
     list_filter = ['name', 'desc', 'click_nums', 'fav_nums']
+    # 将下拉模式修改为搜索模式
+    # relfield_style ='fk-ajax'
 
 
 class TeacherAdmin(object):
