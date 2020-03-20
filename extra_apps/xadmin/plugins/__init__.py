@@ -27,7 +27,8 @@ PLUGINS = (
     'passwords',
     'sitemenu', 
     'language', 
-    'quickfilter'
+    'quickfilter',
+    'ueditor'
 )
 
 
