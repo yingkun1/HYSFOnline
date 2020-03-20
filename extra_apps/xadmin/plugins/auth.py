@@ -256,8 +256,8 @@ class ChangeAccountPasswordView(ChangePasswordView):
             return HttpResponseRedirect(self.get_admin_url('index'))
         else:
             return self.get_response()
-
-site.register_view(r'^auth/user/(.+)/update/password/$',
+# users/userprofile/22/password/
+site.register_view(r'^users/userprofile/(.+)/password/$',
                    ChangePasswordView, name='user_change_password')
 site.register_view(r'^account/password/$', ChangeAccountPasswordView,
                    name='account_password')
