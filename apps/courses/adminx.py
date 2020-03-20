@@ -32,10 +32,16 @@ class CourseAdmin(object):
     list_editable = ['degree','desc']
     refresh_times = [3, 5]
     style_fields = {'detail': 'ueditor',}
+    import_excel = True
     def queryset(self):
         qs = super(CourseAdmin,self).queryset()
         qs = qs.filter(is_banner=False)
         return qs
+
+    def post(self,request, *args, **kwargs):
+        if 'excel' in request.FILES:
+            pass
+        return super(CourseAdmin,self).post(request,args,kwargs)
     # 排序
     # ordering = ['-click_nums']
     # 隐藏

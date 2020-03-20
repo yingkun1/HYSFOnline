@@ -28,7 +28,8 @@ PLUGINS = (
     'sitemenu', 
     'language', 
     'quickfilter',
-    'ueditor'
+    'ueditor',
+    'excel'
 )
 
 
